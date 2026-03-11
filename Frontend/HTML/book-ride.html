@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Ride – ZenoRide</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body class="book-page">
+    <!-- ── Navbar ──────────────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="Home.html" class="nav-brand">
+          <i class="fa-solid fa-bolt"></i> ZenoRide
+        </a>
+        <div class="nav-links">
+          <a
+            href="profile.html"
+            class="nav-user-info"
+            style="text-decoration: none"
+          >
+            <div class="nav-avatar" id="navAvatar">?</div>
+          </a>
+          <button class="btn btn-ghost btn-sm" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── Main Layout ─────────────────────────────── -->
+    <div class="book-layout">
+      <!-- ════ RIDER SIDEBAR ════════════════════════ -->
+      <aside
+        class="book-sidebar"
+        id="riderView"
+        style="display: flex; flex-direction: column; gap: 18px"
+      >
+        <div class="sidebar-title">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Book a Ride</span>
+        </div>
+
+        <!-- Instructions -->
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6">
+          Enter your pickup and destination, or click the map to set points.
+        </p>
+
+        <!-- Pickup Input Card -->
+        <div class="loc-input-card" id="pickupCard">
+          <div class="loc-input-header">
+            <span class="dot dot-green"></span>
+            <span>Pickup Location</span>
+          </div>
+          <div class="loc-input-row">
+            <div class="input-group" style="flex: 1">
+              <i class="input-icon fa-solid fa-location-dot"></i>
+              <input
+                class="form-input"
+                type="text"
+                id="pickupInput"
+                placeholder="Enter pickup address"
+                autocomplete="off"
+              />
+            </div>
+            <button
+              class="btn btn-ghost btn-sm loc-gps-btn"
+              id="useMyLocationBtn"
+              title="Use my current location"
+            >
+              <i class="fa-solid fa-crosshairs"></i>
+            </button>
+          </div>
+          <div class="loc-input-coords" id="pickupCoord"></div>
+          <div class="loc-suggestions" id="pickupSuggestions"></div>
+        </div>
+
+        <!-- Destination Input Card -->
+        <div class="loc-input-card" id="dropoffCard">
+          <div class="loc-input-header">
+            <span class="dot dot-red"></span>
+            <span>Destination</span>
+          </div>
+          <div class="loc-input-row">
+            <div class="input-group" style="flex: 1">
+              <i class="input-icon fa-solid fa-flag-checkered"></i>
+              <input
+                class="form-input"
+                type="text"
+                id="dropoffInput"
+                placeholder="Enter destination"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="loc-input-coords" id="dropoffCoord"></div>
+          <div class="loc-suggestions" id="dropoffSuggestions"></div>
+        </div>
+
+        <!-- Live location indicator -->
+        <div class="live-location-badge" id="liveBadge" style="display: none">
+          <span class="status-dot pulse"></span>
+          <span>Live location active</span>
+        </div>
+
+        <!-- Nearby Drivers -->
+        <div class="nearby-drivers-info" id="nearbyInfo">
+          <i class="fa-solid fa-car" style="color: var(--warning)"></i>
+          <span id="nearbyCount">0</span> drivers nearby
+        </div>
+
+        <!-- Ride Status -->
+        <div>
+          <p
+            style="
+              font-size: 11px;
+              font-weight: 700;
+              color: var(--text-dim);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 8px;
+            "
+          >
+            Ride Status
+          </p>
+          <span class="status-badge status-idle" id="rideStatusBadge">
+            <span class="status-dot"></span> Idle
+          </span>
+        </div>
+
+        <!-- Driver Accepted Banner -->
+        <div class="driver-banner" id="driverBanner">
+          <div class="db-title">
+            <i class="fa-solid fa-circle-check"></i> Driver accepted your ride!
+          </div>
+          <div class="db-info" id="driverBannerInfo">
+            Your driver is on the way.
+          </div>
+        </div>
+
+        <!-- Spacer -->
+        <div style="flex: 1"></div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <button class="btn btn-accent btn-lg" id="requestBtn" disabled>
+            <i class="fa-solid fa-location-dot"></i> Request Ride
+          </button>
+          <button class="btn btn-ghost btn-sm" id="clearBtn">
+            <i class="fa-solid fa-rotate-left"></i> Clear Points
+          </button>
+        </div>
+      </aside>
+
+      <!-- ════ DRIVER SIDEBAR ═══════════════════════ -->
+      <aside
+        class="book-sidebar"
+        id="driverView"
+        style="display: none; flex-direction: column; gap: 18px"
+      >
+        <div class="sidebar-title">
+          <i class="fa-solid fa-car"></i>
+          <span>Driver Dashboard</span>
+        </div>
+
+        <!-- Online / Offline toggle -->
+        <div>
+          <p
+            style="
+              font-size: 11px;
+              font-weight: 700;
+              color: var(--text-dim);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 8px;
+            "
+          >
+            Your Status
+          </p>
+          <span class="status-badge status-idle" id="driverStatus">
+            <span class="status-dot"></span> Offline
+          </span>
+        </div>
+
+        <button class="btn btn-accent w-full" id="goOnlineBtn">
+          <i class="fa-solid fa-circle-dot"></i> Go Online
+        </button>
+
+        <div class="divider">Incoming Requests</div>
+
+        <!-- Ride request cards appear here -->
+        <div
+          id="rideRequestsList"
+          style="display: flex; flex-direction: column; gap: 12px"
+        >
+          <p
+            style="
+              font-size: 13px;
+              color: var(--text-dim);
+              text-align: center;
+              padding: 20px 0;
+            "
+          >
+            <i
+              class="fa-solid fa-clock"
+              style="
+                display: block;
+                font-size: 24px;
+                margin-bottom: 8px;
+                color: var(--text-dim);
+              "
+            ></i>
+            Go online to start receiving ride requests.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ════ MAP ══════════════════════════════════ -->
+      <div class="book-map">
+        <div id="map"></div>
+        <div class="map-hint" id="mapHint">📍 Set your pickup location</div>
+      </div>
+    </div>
+
+    <!-- ── Loader Overlay (waiting for driver) ──────── -->
+    <div class="loader-overlay" id="loaderOverlay">
+      <div class="loader-car">🚗</div>
+      <div class="loader-track">
+        <div class="loader-track-fill"></div>
+      </div>
+      <div class="loader-pulse"><span></span><span></span><span></span></div>
+      <div class="loader-content">
+        <div class="loader-title" id="loaderTitle">Finding your driver…</div>
+        <div class="loader-sub" id="loaderSub">
+          Nearby drivers are being notified. Please wait.
+        </div>
+      </div>
+      <button class="loader-cancel" id="loaderCancel">Cancel request</button>
+    </div>
+
+    <!-- Scripts (order matters) -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../Js/auth.js"></script>
+    <script src="../Js/api.js"></script>
+    <script src="../Js/loader.js"></script>
+    <script src="../Js/toast.js"></script>
+    <script src="../Js/socket-manager.js"></script>
+    <script src="../Js/book-ride.js"></script>
+  </body>
+</html>

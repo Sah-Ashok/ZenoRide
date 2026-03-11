@@ -1,0 +1,155 @@
+<svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Atmosphere blobs -->
+  <circle cx="300" cy="250" r="230" fill="#7c6ef606"/>
+  <circle cx="430" cy="170" r="150" fill="#7c6ef604"/>
+  <circle cx="150" cy="350" r="100" fill="#7c6ef605"/>
+
+  <!-- Buildings silhouette -->
+  <rect x="50" y="180" width="48" height="180" rx="6" fill="#151a30"/>
+  <rect x="108" y="145" width="42" height="215" rx="6" fill="#151a30"/>
+  <rect x="160" y="210" width="36" height="150" rx="6" fill="#151a30"/>
+  <rect x="400" y="130" width="52" height="150" rx="6" fill="#151a30"/>
+  <rect x="462" y="170" width="40" height="110" rx="6" fill="#151a30"/>
+  <rect x="512" y="195" width="38" height="85" rx="6" fill="#151a30"/>
+  <rect x="350" y="185" width="42" height="95" rx="6" fill="#151a30"/>
+
+  <!-- Building windows -->
+  <rect x="62" y="200" width="10" height="10" rx="2" fill="#7c6ef618"/>
+  <rect x="78" y="200" width="10" height="10" rx="2" fill="#ffc14525"/>
+  <rect x="62" y="220" width="10" height="10" rx="2" fill="#ffc14520"/>
+  <rect x="78" y="220" width="10" height="10" rx="2" fill="#7c6ef618"/>
+  <rect x="62" y="240" width="10" height="10" rx="2" fill="#7c6ef612"/>
+  <rect x="78" y="240" width="10" height="10" rx="2" fill="#ffc14518"/>
+  <rect x="120" y="165" width="9" height="10" rx="2" fill="#7c6ef618"/>
+  <rect x="133" y="165" width="9" height="10" rx="2" fill="#ffc14520"/>
+  <rect x="120" y="185" width="9" height="10" rx="2" fill="#ffc14518"/>
+  <rect x="133" y="185" width="9" height="10" rx="2" fill="#7c6ef615"/>
+  <rect x="120" y="205" width="9" height="10" rx="2" fill="#7c6ef612"/>
+  <rect x="133" y="205" width="9" height="10" rx="2" fill="#ffc14512"/>
+  <rect x="413" y="150" width="10" height="10" rx="2" fill="#ffc14520"/>
+  <rect x="430" y="150" width="10" height="10" rx="2" fill="#7c6ef618"/>
+  <rect x="413" y="170" width="10" height="10" rx="2" fill="#7c6ef615"/>
+  <rect x="430" y="170" width="10" height="10" rx="2" fill="#ffc14518"/>
+  <rect x="475" y="190" width="8" height="10" rx="2" fill="#7c6ef618"/>
+  <rect x="487" y="190" width="8" height="10" rx="2" fill="#ffc14520"/>
+
+  <!-- Road -->
+  <path d="M40 395 Q180 330 300 360 Q420 390 560 310" stroke="#1a2040" stroke-width="64" stroke-linecap="round"/>
+  <path d="M40 395 Q180 330 300 360 Q420 390 560 310" stroke="#1e2545" stroke-width="56" stroke-linecap="round"/>
+
+  <!-- Road center dashes -->
+  <path d="M60 393 Q185 332 300 358 Q415 388 545 312" stroke="#2a3158" stroke-width="2.5" stroke-dasharray="14 10" stroke-linecap="round" fill="none"/>
+
+  <!-- Route dotted line (above road) -->
+  <path d="M130 330 Q220 290 300 330 Q390 370 480 282" stroke="#a89cff" stroke-width="2.5" stroke-dasharray="7 5" fill="none" opacity="0.7"/>
+
+  <!-- Route glow -->
+  <path d="M130 330 Q220 290 300 330 Q390 370 480 282" stroke="#7c6ef6" stroke-width="8" fill="none" opacity="0.08"/>
+
+  <!-- Car body -->
+  <g transform="translate(228, 310)">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="54" rx="48" ry="6" fill="#0a0d1a" opacity="0.5"/>
+    <!-- Underbody -->
+    <rect x="2" y="18" width="96" height="30" rx="10" fill="#6558d4"/>
+    <!-- Body main -->
+    <rect x="0" y="14" width="100" height="30" rx="10" fill="#7c6ef6"/>
+    <!-- Roof -->
+    <rect x="18" y="0" width="60" height="24" rx="8" fill="#6558d4"/>
+    <!-- Windshield -->
+    <rect x="56" y="4" width="18" height="16" rx="4" fill="#a89cff30"/>
+    <!-- Rear window -->
+    <rect x="22" y="4" width="18" height="16" rx="4" fill="#a89cff30"/>
+    <!-- Middle bar -->
+    <rect x="43" y="3" width="3" height="18" rx="1.5" fill="#6558d4"/>
+    <!-- Front headlight -->
+    <rect x="94" y="22" width="8" height="10" rx="3" fill="#ffc145"/>
+    <circle cx="98" cy="27" r="3" fill="#ffeaa0" opacity="0.6"/>
+    <!-- Rear light -->
+    <rect x="-2" y="22" width="6" height="10" rx="3" fill="#ff6b7a"/>
+    <!-- Front wheel -->
+    <circle cx="76" cy="46" r="11" fill="#181e35"/>
+    <circle cx="76" cy="46" r="7" fill="#2a3060"/>
+    <circle cx="76" cy="46" r="3" fill="#565e7c"/>
+    <!-- Rear wheel -->
+    <circle cx="24" cy="46" r="11" fill="#181e35"/>
+    <circle cx="24" cy="46" r="7" fill="#2a3060"/>
+    <circle cx="24" cy="46" r="3" fill="#565e7c"/>
+    <!-- Front bumper accent -->
+    <rect x="88" y="32" width="12" height="3" rx="1.5" fill="#5b50c0"/>
+    <!-- Door line -->
+    <line x1="50" y1="16" x2="50" y2="42" stroke="#6558d4" stroke-width="1"/>
+    <!-- Door handle -->
+    <rect x="54" y="28" width="8" height="2" rx="1" fill="#a89cff40"/>
+  </g>
+
+  <!-- Speed lines behind car -->
+  <line x1="200" y1="335" x2="170" y2="335" stroke="#7c6ef6" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+  <line x1="205" y1="342" x2="160" y2="342" stroke="#7c6ef6" stroke-width="1" opacity="0.2" stroke-linecap="round"/>
+  <line x1="210" y1="348" x2="175" y2="348" stroke="#7c6ef6" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+
+  <!-- Pickup Pin -->
+  <g transform="translate(105, 258)">
+    <!-- Pin shadow -->
+    <ellipse cx="16" cy="50" rx="10" ry="3" fill="#0a0d1a" opacity="0.4"/>
+    <!-- Glow -->
+    <circle cx="16" cy="18" r="24" fill="#3dd68c08"/>
+    <!-- Pin body -->
+    <path d="M16 0C7.2 0 0 7.2 0 16c0 13 16 28 16 28s16-15 16-28C32 7.2 24.8 0 16 0z" fill="#3dd68c"/>
+    <!-- Inner circle -->
+    <circle cx="16" cy="15" r="7" fill="#102a1e"/>
+    <circle cx="16" cy="15" r="3.5" fill="#3dd68c" opacity="0.5"/>
+    <!-- Label -->
+    <text x="16" y="58" text-anchor="middle" fill="#8b93b0" font-size="9" font-family="Inter, sans-serif" font-weight="600">PICKUP</text>
+  </g>
+
+  <!-- Destination Pin -->
+  <g transform="translate(460, 218)">
+    <!-- Pin shadow -->
+    <ellipse cx="16" cy="50" rx="10" ry="3" fill="#0a0d1a" opacity="0.4"/>
+    <!-- Glow -->
+    <circle cx="16" cy="18" r="24" fill="#ff6b7a08"/>
+    <!-- Pin body -->
+    <path d="M16 0C7.2 0 0 7.2 0 16c0 13 16 28 16 28s16-15 16-28C32 7.2 24.8 0 16 0z" fill="#ff6b7a"/>
+    <!-- Inner circle -->
+    <circle cx="16" cy="15" r="7" fill="#2c1520"/>
+    <circle cx="16" cy="15" r="3.5" fill="#ff6b7a" opacity="0.5"/>
+    <!-- Label -->
+    <text x="16" y="58" text-anchor="middle" fill="#8b93b0" font-size="9" font-family="Inter, sans-serif" font-weight="600">DROP-OFF</text>
+  </g>
+
+  <!-- Connection dots at route ends -->
+  <circle cx="130" cy="330" r="5" fill="#3dd68c" opacity="0.8"/>
+  <circle cx="480" cy="282" r="5" fill="#ff6b7a" opacity="0.8"/>
+
+  <!-- Floating phone with map -->
+  <g transform="translate(430, 60)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="70" height="120" rx="12" fill="#181e35" stroke="#2a3060" stroke-width="1.5"/>
+    <!-- Screen -->
+    <rect x="5" y="12" width="60" height="90" rx="6" fill="#101525"/>
+    <!-- Map grid on screen -->
+    <line x1="10" y1="30" x2="60" y2="30" stroke="#1e2545" stroke-width="0.8"/>
+    <line x1="10" y1="50" x2="60" y2="50" stroke="#1e2545" stroke-width="0.8"/>
+    <line x1="10" y1="70" x2="60" y2="70" stroke="#1e2545" stroke-width="0.8"/>
+    <line x1="25" y1="15" x2="25" y2="98" stroke="#1e2545" stroke-width="0.8"/>
+    <line x1="45" y1="15" x2="45" y2="98" stroke="#1e2545" stroke-width="0.8"/>
+    <!-- Route on map -->
+    <path d="M18 80 Q30 40 50 30" stroke="#7c6ef6" stroke-width="2" stroke-dasharray="3 2" fill="none"/>
+    <!-- Mini pin on map -->
+    <circle cx="18" cy="80" r="3" fill="#3dd68c"/>
+    <circle cx="50" cy="30" r="3" fill="#ff6b7a"/>
+    <!-- Notch -->
+    <rect x="22" y="3" width="26" height="4" rx="2" fill="#2a3060"/>
+    <!-- Home bar -->
+    <rect x="24" y="106" width="22" height="3" rx="1.5" fill="#2a3060"/>
+  </g>
+
+  <!-- Small stars / sparkles -->
+  <circle cx="200" cy="80" r="2" fill="#a89cff" opacity="0.4"/>
+  <circle cx="350" cy="60" r="1.5" fill="#ffc145" opacity="0.3"/>
+  <circle cx="520" cy="120" r="2" fill="#a89cff" opacity="0.3"/>
+  <circle cx="100" cy="120" r="1.5" fill="#ffc145" opacity="0.25"/>
+  <circle cx="280" cy="40" r="1" fill="#a89cff" opacity="0.5"/>
+  <circle cx="550" cy="380" r="1.5" fill="#7c6ef6" opacity="0.35"/>
+</svg>

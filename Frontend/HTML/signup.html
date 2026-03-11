@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account – ZenoRide</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-wrapper">
+      <div class="auth-illustration-side">
+        <img
+          src="../images/auth-illustration.svg"
+          alt="ZenoRide"
+          class="auth-illustration-img"
+        />
+        <p class="auth-illustration-tagline">Join thousands of riders today</p>
+      </div>
+      <div class="auth-card">
+        <!-- Logo -->
+        <div class="auth-logo">
+          <a href="Home.html" class="auth-logo-brand">
+            <i class="fa-solid fa-bolt"></i> ZenoRide
+          </a>
+        </div>
+
+        <h1 class="auth-title">Create your account</h1>
+        <p class="auth-subtitle">Join ZenoRide as a rider or driver.</p>
+
+        <!-- Error Alert -->
+        <div class="alert alert-error" id="signupAlert" style="display: none">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span id="alertMsg"></span>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="signupForm" novalidate>
+          <!-- Role Selector -->
+          <div class="form-group">
+            <label class="form-label">I want to</label>
+            <div class="role-selector">
+              <div class="role-option">
+                <input
+                  type="radio"
+                  name="role"
+                  id="roleRider"
+                  value="rider"
+                  checked
+                />
+                <label class="role-label" for="roleRider">
+                  <i class="fa-solid fa-user"></i>
+                  <span>Ride</span>
+                </label>
+              </div>
+              <div class="role-option">
+                <input
+                  type="radio"
+                  name="role"
+                  id="roleDriver"
+                  value="driver"
+                />
+                <label class="role-label" for="roleDriver">
+                  <i class="fa-solid fa-car"></i>
+                  <span>Drive</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label class="form-label" for="name">Full name</label>
+            <div class="input-group">
+              <i class="input-icon fa-solid fa-user"></i>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Alex Johnson"
+                autocomplete="name"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <div class="input-group">
+              <i class="input-icon fa-solid fa-envelope"></i>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number</label>
+            <div class="input-group">
+              <i class="input-icon fa-solid fa-phone"></i>
+              <input
+                class="form-input"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 98765 43210"
+                autocomplete="tel"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group">
+              <i class="input-icon fa-solid fa-lock"></i>
+              <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Min. 6 characters"
+                autocomplete="new-password"
+                required
+              />
+              <button
+                type="button"
+                class="input-toggle"
+                id="togglePass"
+                aria-label="Toggle password"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="btn btn-accent btn-lg w-full"
+            id="submitBtn"
+            style="margin-top: 4px"
+          >
+            <i class="fa-solid fa-user-plus"></i> Create Account
+          </button>
+        </form>
+
+        <p class="auth-footer-link">
+          Already have an account? <a href="login.html">Sign in</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../Js/auth.js"></script>
+    <script src="../Js/api.js"></script>
+    <script src="../Js/toast.js"></script>
+    <script src="../Js/signup.js"></script>
+  </body>
+</html>

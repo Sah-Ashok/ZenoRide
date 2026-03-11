@@ -42,6 +42,7 @@ PostgreSQL       Redis
 ## Technologies
 
 **Backend**
+
 - Node.js + Express — HTTP server and REST API
 - Socket.io — real-time bidirectional communication
 - PostgreSQL — persistent storage for users and rides
@@ -51,6 +52,7 @@ PostgreSQL       Redis
 - dotenv — environment variable management
 
 **Frontend**
+
 - Vanilla HTML, CSS, JavaScript — no frameworks
 - Leaflet.js — interactive map rendering
 - Socket.io client — real-time event handling
@@ -159,35 +161,36 @@ CREATE TABLE rides (
 
 ## API Reference
 
-| Method | Endpoint | Auth | Role | Description |
-|--------|----------|------|------|-------------|
-| POST | /auth/signup | No | Any | Register a new user |
-| POST | /auth/login | No | Any | Login and receive JWT |
-| GET | /auth/profile | Yes | Any | Get current user profile |
-| POST | /rides/request | Yes | rider | Create a new ride request |
-| POST | /rides/rides/:id/accept | Yes | driver | Accept a ride |
-| POST | /rides/rides/:id/cancel | Yes | rider | Cancel a pending ride |
-| POST | /driver/location | Yes | driver | Update driver GPS position in Redis |
-| GET | /driver/nearby | Yes | Any | Get nearby drivers with coordinates |
+| Method | Endpoint                | Auth | Role   | Description                         |
+| ------ | ----------------------- | ---- | ------ | ----------------------------------- |
+| POST   | /auth/signup            | No   | Any    | Register a new user                 |
+| POST   | /auth/login             | No   | Any    | Login and receive JWT               |
+| GET    | /auth/profile           | Yes  | Any    | Get current user profile            |
+| POST   | /rides/request          | Yes  | rider  | Create a new ride request           |
+| POST   | /rides/rides/:id/accept | Yes  | driver | Accept a ride                       |
+| POST   | /rides/rides/:id/cancel | Yes  | rider  | Cancel a pending ride               |
+| POST   | /driver/location        | Yes  | driver | Update driver GPS position in Redis |
+| GET    | /driver/nearby          | Yes  | Any    | Get nearby drivers with coordinates |
 
 ---
 
 ## Socket.io Events
 
-| Event | Direction | Payload | Description |
-|-------|-----------|---------|-------------|
-| driver:location | client to server | { lat, lng } | Driver sends current GPS position |
+| Event                 | Direction             | Payload                | Description                                     |
+| --------------------- | --------------------- | ---------------------- | ----------------------------------------------- |
+| driver:location       | client to server      | { lat, lng }           | Driver sends current GPS position               |
 | driver:locationUpdate | server to riders room | { driverId, lat, lng } | Server broadcasts driver position to all riders |
-| ride:requested | server to driver | ride object | New ride request near the driver |
-| ride:accepted | server to all | ride object | A ride has been accepted |
-| ride:cancelled | server to all | { rideId } | A ride was cancelled by the rider |
-| ride:error | server to client | { message } | Error during ride operation |
+| ride:requested        | server to driver      | ride object            | New ride request near the driver                |
+| ride:accepted         | server to all         | ride object            | A ride has been accepted                        |
+| ride:cancelled        | server to all         | { rideId }             | A ride was cancelled by the rider               |
+| ride:error            | server to client      | { message }            | Error during ride operation                     |
 
 ---
 
 ## How to Run
 
 ### Prerequisites
+
 - Node.js 18+
 - PostgreSQL running locally
 - Redis running locally
@@ -238,5 +241,6 @@ Open `Frontend/HTML/Home.html` directly in a browser. No build step required.
 5. The driver clicks Accept Ride. The server updates the ride status in PostgreSQL and broadcasts `ride:accepted` to all connected clients.
 6. The rider sees "Driver En Route" and the loading overlay is replaced with a confirmation banner.
 7. If the rider cancels before a driver accepts, the server marks the ride as cancelled and broadcasts `ride:cancelled` so driver cards disappear.
-#   Z e n o R i d e  
- 
+   #   Z e n o R i d e 
+    
+    

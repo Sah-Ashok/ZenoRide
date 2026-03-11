@@ -1,0 +1,14 @@
+<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="16" fill="#ffc14510"/>
+  <circle cx="40" cy="38" r="22" fill="#ffc14508"/>
+  <!-- Wallet -->
+  <rect x="20" y="26" width="40" height="28" rx="6" fill="#ffc145" opacity="0.2" stroke="#ffc145" stroke-width="1.5"/>
+  <!-- Card slot -->
+  <rect x="20" y="22" width="32" height="12" rx="4" fill="#ffc145" opacity="0.15" stroke="#ffc145" stroke-width="1"/>
+  <!-- Clasp -->
+  <circle cx="52" cy="40" r="4" fill="#ffc145" opacity="0.3" stroke="#ffc145" stroke-width="1.5"/>
+  <circle cx="52" cy="40" r="1.5" fill="#ffc145"/>
+  <!-- Coin -->
+  <circle cx="32" cy="60" r="6" fill="#ffc14530" stroke="#ffc145" stroke-width="1"/>
+  <text x="32" y="63" text-anchor="middle" fill="#ffc145" font-size="8" font-weight="700" font-family="Inter, sans-serif">$</text>
+</svg>

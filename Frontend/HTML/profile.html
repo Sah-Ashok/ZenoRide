@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile – ZenoRide</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body class="profile-page">
+    <!-- ── Navbar ──────────────────────────────────── -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="Home.html" class="nav-brand">
+          <i class="fa-solid fa-bolt"></i> ZenoRide
+        </a>
+        <div class="nav-links">
+          <a href="book-ride.html" class="btn btn-ghost">
+            <i class="fa-solid fa-location-dot"></i> Book Ride
+          </a>
+          <a href="Home.html" class="btn btn-ghost">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── Profile ─────────────────────────────────── -->
+    <div class="profile-container">
+      <!-- Header Card -->
+      <div class="profile-header">
+        <div class="profile-avatar-lg" id="avatarInitial">?</div>
+        <h1 class="profile-name" id="profileName">
+          <span
+            class="skeleton"
+            style="
+              display: inline-block;
+              width: 150px;
+              height: 28px;
+              border-radius: 6px;
+            "
+            >&nbsp;</span
+          >
+        </h1>
+        <div class="profile-role-badge role-rider" id="roleBadge">
+          <i class="fa-solid fa-user"></i> Rider
+        </div>
+      </div>
+
+      <!-- Info Card -->
+      <div class="profile-info-card">
+        <div class="profile-info-title">Account Information</div>
+
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+          <div>
+            <div class="info-label">Full Name</div>
+            <div class="info-value" id="infoName">—</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="info-label">Email Address</div>
+            <div class="info-value" id="infoEmail">—</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="info-label">Phone Number</div>
+            <div class="info-value" id="infoPhone">—</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-fingerprint"></i></div>
+          <div>
+            <div class="info-label">User ID</div>
+            <div class="info-value" id="infoId">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="profile-actions">
+        <a href="book-ride.html" class="btn btn-accent btn-lg" id="roleAction">
+          <i class="fa-solid fa-location-dot"></i> Book a Ride
+        </a>
+        <button class="btn btn-danger btn-lg" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../Js/auth.js"></script>
+    <script src="../Js/api.js"></script>
+    <script src="../Js/toast.js"></script>
+    <script src="../Js/socket-manager.js"></script>
+    <!-- socket-manager needs Auth, so load after auth.js -->
+    <!-- socket.io CDN not strictly needed here unless socket connects; included for SocketManager.disconnect() -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="../Js/profile.js"></script>
+  </body>
+</html>

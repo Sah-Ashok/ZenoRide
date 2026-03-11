@@ -1,0 +1,25 @@
+Next planned steps for ZenoRide backend:
+
+Request validation layer (Joi/Zod)
+
+Centralized error handling middleware
+
+Role-based authorization
+
+Ride locking (prevent two drivers accepting same ride)
+
+Rate limiting
+
+Logging system
+
+Configuration cleanup
+
+After that:
+
+Fare calculation
+
+Ride cancellation
+
+Trip history
+
+Payments
